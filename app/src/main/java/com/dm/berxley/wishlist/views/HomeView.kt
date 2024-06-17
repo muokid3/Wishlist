@@ -25,21 +25,24 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.dm.berxley.wishlist.R
 import com.dm.berxley.wishlist.models.DummyWish
 import com.dm.berxley.wishlist.models.Wish
+import com.dm.berxley.wishlist.viewModels.WishViewModel
 
 @Composable
-fun HomeView() {
+fun HomeView(
+    navController: NavController,
+    viewModel: WishViewModel
+) {
     val context = LocalContext.current
 
     Scaffold(
         topBar = {
             AppBarView(
-                title = "Wishlist",
-                onBackNavClicked = {
-                    Toast.makeText(context, "Back clicked", Toast.LENGTH_SHORT).show()
-                })
+                title = "Wishlist"
+            )
         },
         floatingActionButton = {
             FloatingActionButton(
@@ -47,13 +50,15 @@ fun HomeView() {
                 contentColor = colorResource(id = R.color.white),
                 containerColor = colorResource(id = R.color.black),
                 onClick = {
-                    Toast.makeText(context, "FAB clicked", Toast.LENGTH_SHORT).show()
+                    navController.navigate(Screen.AddScreen.route)
                 }) {
                 Icon(imageVector = Icons.Default.Add, contentDescription = "Add")
             }
         }
     ) {
-        LazyColumn(modifier = Modifier.padding(it).fillMaxSize()) {
+        LazyColumn(modifier = Modifier
+            .padding(it)
+            .fillMaxSize()) {
             items(DummyWish.wishList) { wishItem ->
                 Wish(wish = wishItem) {
                 }
