@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.dm.berxley.wishlist.ui.theme.WishlistTheme
 import com.dm.berxley.wishlist.views.HomeView
+import com.dm.berxley.wishlist.views.Navigation
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    HomeView()
+                    Navigation()
                 }
             }
         }

@@ -55,6 +55,10 @@ dependencies {
 
     val nav_version = "2.7.7"
     val room_version = "2.6.1"
+    val lifecycle_version = "2.8.2"
+
+    // ViewModel utilities for Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
 
     //navigation
     implementation("androidx.navigation:navigation-compose:$nav_version")
