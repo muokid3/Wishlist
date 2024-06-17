@@ -40,10 +40,18 @@ fun AppBarView(
             containerColor = colorResource(R.color.app_bar_color),
             titleContentColor = colorResource(R.color.white)
         ),
-//        navigationIcon = {
-//            IconButton(onClick = { /*TODO*/ }) {
-//                Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
-//            }
-//        }
+        navigationIcon = {
+            if (!title.contains("Wishlist")){
+                IconButton(onClick = { onBackNavClicked() }) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        tint = colorResource(id = R.color.white),
+                        contentDescription = "Back"
+                    )
+                }
+            }else{
+                null
+            }
+        }
     )
 }
